@@ -1,0 +1,10 @@
+version: '3'
+services:
+  jupyter:
+    image: jupyter/${IMG_STACK}-notebook
+    command: "start-notebook.sh \
+      --NotebookApp.password=${ACCESS_TOKEN}"
+    ports:
+      - "${PORT}:8888"
+    volumes:
+      - "${LOCAL_WORKING_DIR}:/home/jovyan/work"
